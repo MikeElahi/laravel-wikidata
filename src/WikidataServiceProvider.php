@@ -4,7 +4,6 @@ namespace WiGeeky\Wikidata;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use WiGeeky\Wikidata\Commands\WikidataCommand;
 
 class WikidataServiceProvider extends PackageServiceProvider
 {
@@ -17,9 +16,6 @@ class WikidataServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-wikidata')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel-wikidata_table')
-            ->hasCommand(WikidataCommand::class);
+            ->hasConfigFile();
     }
 }

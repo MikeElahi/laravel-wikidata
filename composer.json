@@ -35,8 +35,7 @@
     },
     "autoload": {
         "psr-4": {
-            "WiGeeky\\Wikidata\\": "src",
-            "WiGeeky\\Wikidata\\Database\\Factories\\": "database/factories"
+            "WiGeeky\\Wikidata\\": "src"
         }
     },
     "autoload-dev": {
