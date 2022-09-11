@@ -1,6 +1,5 @@
 <?php
 
-// config for WiGeeky/Wikidata
 return [
-
+    'base_url' => 'https://query.wikidata.org/sparql?query=',
 ];
