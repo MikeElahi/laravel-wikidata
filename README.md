@@ -5,15 +5,7 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/wigeeky/laravel-wikidata/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/wigeeky/laravel-wikidata/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/wigeeky/laravel-wikidata.svg?style=flat-square)](https://packagist.org/packages/wigeeky/laravel-wikidata)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-wikidata.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-wikidata)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+This Laravel package assists with getting data from Wikidata's SPARQL APIs. 
 
 ## Installation
 
@@ -21,13 +13,6 @@ You can install the package via composer:
 
 ```bash
 composer require wigeeky/laravel-wikidata
-```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="laravel-wikidata-migrations"
-php artisan migrate
 ```
 
 You can publish the config file with:
@@ -40,20 +25,17 @@ This is the contents of the published config file:
 
 ```php
 return [
+    'base_url' => 'https://query.wikidata.org/sparql?query=',
 ];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="laravel-wikidata-views"
 ```
 
 ## Usage
 
 ```php
-$wikidata = new WiGeeky\Wikidata();
-echo $wikidata->echoPhrase('Hello, WiGeeky!');
+use WiGeeky\Wikidata\Facades\Wikidata;
+$query = "SELECT ?country ?code ?flag WHERE {?item wdt:P31 wd:Q3624078 . ?item wdt:P474 ?code . ?item wdt:P297 ?country .  ?item wdt:P41 ?flag}";
+
+$collection = Wikidata::get($query);
 ```
 
 ## Testing
