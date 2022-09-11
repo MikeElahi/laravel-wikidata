@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace WiGeeky\Wikidata\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class WikidataCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-wikidata';
 
     public $description = 'My command';
 
